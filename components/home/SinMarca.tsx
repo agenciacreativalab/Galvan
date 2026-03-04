@@ -87,8 +87,8 @@ export function SinMarca() {
         />
       </div>
 
-      {/* Decorative Spheres (17 y 20) */}
-      <div className="floating-sphere absolute top-[15%] left-[5%] md:top-[25%] md:left-[10%] z-20 w-[80px] md:w-[150px] h-[80px] md:h-[150px] opacity-80">
+      {/* Decorative Spheres (13, 17 y 20) */}
+      <div className="floating-sphere absolute top-[10%] left-[10%] md:top-[-20%] md:left-[7%] z-20 w-[80px] md:w-[800px] h-[90px] md:h-[900px] opacity-100">
         <Image
           src="/bloque3/ESFERA-17.webp"
           alt="Esfera 17"
@@ -97,10 +97,19 @@ export function SinMarca() {
         />
       </div>
 
-      <div className="floating-sphere absolute bottom-[10%] right-[10%] md:bottom-[15%] md:right-[20%] z-20 w-[100px] md:w-[200px] h-[100px] md:h-[200px] opacity-80">
+      <div className="floating-sphere absolute bottom-[10%] right-[10%] md:bottom-[190] md:right-[76%] z-20 w-[200px] md:w-[280px] h-[200px] md:h-[400px] opacity-100">
         <Image
           src="/bloque3/ESFERA-20.webp"
           alt="Esfera 20"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      <div className="floating-sphere absolute top-[60%] right-[5%] md:top-[70%] md:right-[15%] z-20 w-[120px] md:w-[220px] h-[120px] md:h-[220px] opacity-100">
+        <Image
+          src="/bloque3/ESFERA-13.webp"
+          alt="Esfera 13"
           fill
           className="object-contain"
         />
@@ -111,7 +120,7 @@ export function SinMarca() {
 
           {/* Bloque Visual Izquierdo (Desktop) */}
           <div ref={visualRef} className="order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[900px] aspect-square">
+            <div className="relative w-full max-w-[550px] aspect-square">
               <Image
                 src="/bloque3/ESFERA-18.webp"
                 alt="One-line art face illustration"
