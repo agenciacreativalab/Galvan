@@ -91,23 +91,6 @@ export function SinMarca() {
         />
       </div>
 
-      {/* Decorative Spheres */}
-      {[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map((num, i) => (
-        <div
-          key={num}
-          className={`floating-sphere absolute z-10 opacity-60 pointer-events-none ${!sphereStyles[i] ? 'hidden' : ''}`}
-          style={sphereStyles[i] || {}}
-        >
-          <Image
-            src={`/bloque3/ESFERA-${num}.webp`}
-            alt={`Planet ${num}`}
-            width={60}
-            height={60}
-            className="object-contain"
-          />
-        </div>
-      ))}
-
       <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
