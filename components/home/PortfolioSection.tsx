@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
@@ -94,12 +95,13 @@ export function PortfolioSection() {
                     
                     {/* Columna Izquierda */}
                     <div className="flex flex-col items-start space-y-6 relative z-10">
-                      {/* Badge */}
-                      <div className="inline-block px-6 py-2 border-2 border-[#FBBF24] rounded-full">
-                        <span className="text-[#FBBF24] font-bold text-sm md:text-base uppercase tracking-widest">
-                          Portafolio
-                        </span>
-                      </div>
+                      {/* Badge / Button */}
+                      <Link 
+                        href="/portafolio" 
+                        className="inline-block px-6 md:px-8 py-3 md:py-4 bg-transparent border-2 border-[#b39441] text-[#c9ab5b] font-['Poppins'] font-black rounded-2xl transition-all duration-300 hover:bg-[#bda153] hover:text-[#0F172A] hover:scale-120 active:scale-95 text-lg md:text-2xl tracking-tighter uppercase cursor-pointer"
+                      >
+                        Portafolio
+                      </Link>
           
                       {/* Título Principal */}
                       <h2 className="font-lemon-milk leading-[1.05] tracking-tight">

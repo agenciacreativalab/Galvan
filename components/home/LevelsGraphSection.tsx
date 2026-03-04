@@ -50,29 +50,26 @@ export function LevelsGraphSection() {
     });
 
     // 1. Icono superior derecho fade in
-    tl.from(iconRef.current, {
-      opacity: 0,
-      duration: 1,
-      ease: "power2.out"
-    });
+    tl.fromTo(iconRef.current, 
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power2.out" }
+    );
 
     // 2. Gráfica central zoom in y fade in
-    tl.from(graphRef.current, {
-      scale: 0.9,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power4.out"
-    }, "-=0.5");
+    tl.fromTo(graphRef.current, 
+      { scale: 0.9, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.5, ease: "power4.out" }, 
+      "-=0.5"
+    );
 
     // 3. Botón sube y hace fade in
-    tl.from(buttonRef.current, {
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    }, "-=1");
+    tl.fromTo(buttonRef.current, 
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, 
+      "-=1"
+    );
 
-    // 4. Animación flotante de esferas
+    // 4. Animación flotante de esferas (las chiquitas)
     gsap.utils.toArray<HTMLElement>(".floating-graph-sphere").forEach((sphere) => {
       gsap.to(sphere, {
         y: "random(-15, 15)",
@@ -81,6 +78,27 @@ export function LevelsGraphSection() {
         yoyo: true,
         ease: "sine.inOut",
       });
+    });
+
+    // 5. Animación continua para las bolitas flotantes (grandes)
+    gsap.to(".floating-ball-1", {
+      x: "-70%",
+      y: -60,
+      rotation: 15,
+      duration: 5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    gsap.to(".floating-ball-2", {
+      x: 50,
+      y: -100,
+      rotation: -20,
+      duration: 6,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
     });
 
   }, { scope: container });
@@ -99,6 +117,21 @@ export function LevelsGraphSection() {
         />
         {/* Overlay oscuro para contraste */}
         <div className="absolute inset-0 bg-[#0F172A]/80" />
+      </div>
+
+      {/* ======== BOLITAS FLOTANTES GRANDES ======== */}
+      <div className="floating-ball-1 absolute top-[15%] left-[5%] md:top-[20%] md:left-[10%] w-[150px] h-[150px] md:w-[250px] md:h-[250px] z-[5] pointer-events-auto cursor-pointer">
+        <Image src="/hero/RECURSO_1.webp" alt="Floating ball 1" fill className="object-contain hover:scale-150 transition-transform duration-300" quality={100} />
+      </div>
+
+      <div className="floating-ball-2 absolute bottom-[10%] right-[5%] md:bottom-[20%] md:right-[10%] w-[250px] h-[250px] md:w-[350px] md:h-[350px] z-[5] pointer-events-auto cursor-pointer">
+        <Image
+          src="/hero/RECURSO_2.webp"
+          alt="Floating ball 2"
+          fill
+          className="object-contain hover:scale-150 transition-transform duration-300"
+          quality={100}
+        />
       </div>
 
       {/* Esferas flotantes en las esquinas inferiores */}

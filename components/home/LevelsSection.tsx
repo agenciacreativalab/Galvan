@@ -63,6 +63,16 @@ export function LevelsSection() {
       ease: "sine.inOut"
     });
 
+    gsap.to(".floating-ball-3", {
+      y: -60,
+      x: 40,
+      duration: 4.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 1
+    });
+
   }, { scope: container });
 
   return (
@@ -100,6 +110,16 @@ export function LevelsSection() {
         <Image
           src="/hero/RECURSO_2.webp"
           alt="Floating ball 2"
+          fill
+          className="object-contain hover:scale-150 transition-transform duration-300"
+          quality={100}
+        />
+      </div>
+
+      <div className="floating-ball-3 absolute top-[30%] left-[350%] md:top-[42%] md:left-[68%] w-[150px] h-[150px] md:w-[100px] md:h-[100px] z-[5] pointer-events-auto cursor-pointer">
+        <Image
+          src="/hero/RECURSO_2.webp"
+          alt="Floating ball 3"
           fill
           className="object-contain hover:scale-150 transition-transform duration-300"
           quality={100}
