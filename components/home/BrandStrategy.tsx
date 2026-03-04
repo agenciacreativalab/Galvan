@@ -208,11 +208,11 @@ export function BrandStrategy() {
 
             {/* Botones */}
             <div className="animate-text flex flex-row flex-wrap gap-4 pt-8 justify-center lg:justify-end w-full">
-              <button className="flex-1 max-w-[280px] px-6 py-3 bg-transparent border border-[#E6A800]/60 text-[#E6A800] font-black rounded-2xl transition-all duration-300 ease-out text-lg md:text-xl tracking-tight shadow-sm hover:scale-105 active:scale-95 whitespace-nowrap">
+              <button className="flex-1 max-w-[280px] px-6 py-3 bg-transparent border-2 border-[#b39441] text-[#c9ab5b] font-['Poppins'] font-black rounded-2xl transition-all duration-300 hover:bg-[#bda153] hover:text-[#0F172A] hover:scale-120 active:scale-95 text-lg md:text-xl tracking-tight shadow-sm whitespace-nowrap">
                 Iniciar diagnóstico
               </button>
 
-              <button className="flex-1 max-w-[280px] px-6 py-3 bg-transparent border border-[#E6A800]/60 text-[#E6A800] font-black rounded-2xl transition-all duration-300 ease-out text-lg md:text-xl tracking-tight hover:scale-105 active:scale-95 whitespace-nowrap">
+              <button className="flex-1 max-w-[280px] px-6 py-3 bg-transparent border-2 border-[#b39441] text-[#c9ab5b] font-['Poppins'] font-black rounded-2xl transition-all duration-300 hover:bg-[#bda153] hover:text-[#0F172A] hover:scale-120 active:scale-95 text-lg md:text-xl tracking-tight shadow-sm whitespace-nowrap">
                 Consultoría
               </button>
             </div>

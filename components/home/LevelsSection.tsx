@@ -42,6 +42,27 @@ export function LevelsSection() {
       ease: "power3.out",
     }, "-=1");
 
+    // Animación continua para las bolitas flotantes
+    gsap.to(".floating-ball-1", {
+      x: "-70%",
+      y: -60,
+      rotation: 15,
+      duration: 5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    gsap.to(".floating-ball-2", {
+      x: 50,
+      y: -100,
+      rotation: -20,
+      duration: 6,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
   }, { scope: container });
 
   return (
@@ -60,18 +81,43 @@ export function LevelsSection() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
+      {/* ======== BOLITAS FLOTANTES ======== */}
+      <div className="floating-ball-1 absolute top-[20%] right-[20%] md:top-[20%] md:right-[50%] w-60 h-60 md:w-110 md:h-80 z-[5] pointer-events-auto cursor-pointer">
+        <Image src="/hero/RECURSO_1.webp" alt="Floating ball 1" fill className="object-contain hover:scale-150 transition-transform duration-300" quality={100} />
+      </div>
+
+      <div className="floating-ball-1 absolute bottom-[-10%] right-[-5%] md:bottom-[-4%] md:right-[5%] w-[400px] h-[400px] md:w-[200px] md:h-[700px] z-[5] pointer-events-auto cursor-pointer">
+        <Image
+          src="/hero/RECURSO_1.webp"
+          alt="Floating ball 1"
+          fill
+          className="object-contain hover:scale-150 transition-transform duration-300"
+          quality={100}
+        />
+      </div>
+
+      <div className="floating-ball-2 absolute bottom-[-10%] left-[-20%] md:bottom-[9%] md:left-[15%] w-[400px] h-[400px] md:w-[200px] md:h-[200px] z-[5] pointer-events-auto cursor-pointer">
+        <Image
+          src="/hero/RECURSO_2.webp"
+          alt="Floating ball 2"
+          fill
+          className="object-contain hover:scale-150 transition-transform duration-300"
+          quality={100}
+        />
+      </div>
+
       {/* 3. Estructura Principal */}
       <div className="container mx-auto px-6 md:px-12 relative z-20 h-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 h-full min-h-[80vh] items-center">
 
           {/* Columna Izquierda (La Silueta) */}
-          <div className="relative h-[50vh] lg:h-[80vh] flex items-end justify-center lg:justify-start w-full">
-            <div ref={profileRef} className="relative w-[300px] sm:w-[400px] md:w-[500px] lg:w-[700px] h-[100%] max-h-[800px] origin-bottom">
+          <div className="relative h-[50vh] lg:h-[80vh] flex items-end justify-center lg:justify-start w-full pointer-events-auto">
+            <div ref={profileRef} className="relative w-[300px] sm:w-[400px] md:w-[500px] lg:w-[700px] h-[100%] max-h-[800px] origin-bottom cursor-pointer group">
               <Image
                 src="/bloque7/perfil.webp"
                 alt="Silueta Perfil"
                 fill
-                className="object-contain object-bottom drop-shadow-2xl"
+                className="object-contain object-bottom drop-shadow-2xl group-hover:scale-110 transition-transform duration-500"
                 priority
               />
             </div>
@@ -99,7 +145,7 @@ export function LevelsSection() {
       {/* Párrafo Inferior Centrado sobre la imagen */}
       <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-20 pb-32 md:pb-40 lg:pb-32">
         <p className="animate-lvl-text text-white font-medium text-lg md:text-2xl lg:text-3xl max-w-4xl leading-relaxed text-center font-['Poppins'] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] px-4">
-          Cuando la identidad deja de ser solo visual y empieza a vivirse en cada punto de contacto.
+          Cuando la identidad deja de ser solo visual y <br /> empieza a vivirse en cada punto de contacto.
         </p>
       </div>
     </section>

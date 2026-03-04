@@ -15,7 +15,7 @@ export function LevelsGraphSection() {
   const iconRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  
+
   const [sphereStyles, setSphereStyles] = useState<{ top: string, left: string, right?: string, bottom?: string, width: string, height: string }[]>([]);
 
   // Generamos esferas para las esquinas inferiores
@@ -87,7 +87,7 @@ export function LevelsGraphSection() {
 
   return (
     <section ref={container} className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      
+
       {/* Fondo (Reutilizado de Sección 3 con Overlay) */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -136,7 +136,7 @@ export function LevelsGraphSection() {
 
       {/* Contenedor Principal (Gráfica y Botón) */}
       <div className="relative z-20 w-full flex flex-col items-center justify-center px-4 md:px-8 mt-10">
-        
+
         {/* Gráfica Central */}
         <div ref={graphRef} className="relative w-full max-w-4xl lg:max-w-5xl aspect-[16/9] sm:aspect-auto sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
           <Image
@@ -149,9 +149,9 @@ export function LevelsGraphSection() {
         </div>
 
         {/* Botón de Acción */}
-        <button 
-          ref={buttonRef} 
-          className="mt-8 md:mt-12 px-8 md:px-10 py-3 md:py-4 bg-transparent border-2 border-[#E6A800] text-[#E6A800] font-['Poppins'] font-bold rounded-2xl md:rounded-full transition-all duration-300 hover:bg-[#E6A800] hover:text-[#0F172A] hover:scale-105 active:scale-95 text-xl md:text-2xl tracking-tight uppercase shadow-[0_0_15px_rgba(230,168,0,0.15)] hover:shadow-[0_0_25px_rgba(230,168,0,0.4)]"
+        <button
+          ref={buttonRef}
+          className="mt-8 md:mt-12 px-6 md:px-8 py-3 md:py-4 bg-transparent border-2 border-[#b39441] text-[#c9ab5b] font-['Poppins'] font-black rounded-2xl transition-all duration-300 hover:bg-[#bda153] hover:text-[#0F172A] hover:scale-120 active:scale-95 text-3xl md:text-5xl tracking-tighter"
         >
           Iniciar diagnóstico
         </button>

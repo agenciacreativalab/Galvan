@@ -107,7 +107,7 @@ export function Brandfulness() {
             </p>
 
             <div className="animate-bf-text pt-12 md:pt-15 flex justify-center">
-              <button className="px-4 md:px-8 py-1 md:py-2 bg-transparent border-2 border-[#b8932f] text-[#c9a236] font-bold rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95 text-2xl md:text-5xl tracking-tighter">
+              <button className="px-4 md:px-8 py-1 md:py-2 bg-transparent border-2 border-[#b39441] text-[#c9ab5b] font-['Poppins'] font-black rounded-2xl transition-all duration-300 hover:bg-[#bda153] hover:text-[#0F172A] hover:scale-120 active:scale-95 text-2xl md:text-5xl tracking-tighter">
                 Consultoría
               </button>
             </div>
