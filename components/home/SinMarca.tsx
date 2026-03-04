@@ -87,7 +87,7 @@ export function SinMarca() {
         />
       </div>
 
-      {/* Decorative Spheres (13, 17 y 20) */}
+      {/* Decorative Spheres (12, 13, 14, 17 y 20) */}
       <div className="floating-sphere absolute top-[10%] left-[10%] md:top-[-20%] md:left-[7%] z-20 w-[80px] md:w-[800px] h-[90px] md:h-[900px] opacity-100">
         <Image
           src="/bloque3/ESFERA-17.webp"
@@ -106,10 +106,28 @@ export function SinMarca() {
         />
       </div>
 
-      <div className="floating-sphere absolute top-[60%] right-[5%] md:top-[70%] md:right-[15%] z-20 w-[120px] md:w-[220px] h-[120px] md:h-[220px] opacity-100">
+      <div className="floating-sphere absolute top-[60%] right-[5%] md:top-[48%] md:right-[45%] z-20 w-[120px] md:w-[220px] h-[120px] md:h-[90px] opacity-100">
         <Image
           src="/bloque3/ESFERA-13.webp"
           alt="Esfera 13"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      <div className="floating-sphere absolute top-[20%] right-[20%] md:top-[15%] md:right-[30%] z-20 w-[60px] md:w-[120px] h-[60px] md:h-[120px] opacity-100">
+        <Image
+          src="/bloque3/ESFERA-12.webp"
+          alt="Esfera 12"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      <div className="floating-sphere absolute bottom-[20%] left-[5%] md:bottom-[25%] md:left-[25%] z-20 w-[90px] md:w-[180px] h-[90px] md:h-[180px] opacity-100">
+        <Image
+          src="/bloque3/ESFERA-14.webp"
+          alt="Esfera 14"
           fill
           className="object-contain"
         />
