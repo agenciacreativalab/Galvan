@@ -115,7 +115,7 @@ export function SinMarca() {
         />
       </div>
 
-      <div className="floating-sphere absolute top-[20%] right-[20%] md:top-[15%] md:right-[30%] z-20 w-[60px] md:w-[120px] h-[60px] md:h-[120px] opacity-100">
+      <div className="floating-sphere absolute top-[20%] right-[20%] md:top-[56%] md:right-[54%] z-20 w-[250px] md:w-[250px] h-[250px] md:h-[250px] opacity-100">
         <Image
           src="/bloque3/ESFERA-12.webp"
           alt="Esfera 12"
@@ -124,7 +124,7 @@ export function SinMarca() {
         />
       </div>
 
-      <div className="floating-sphere absolute bottom-[20%] left-[5%] md:bottom-[25%] md:left-[25%] z-20 w-[90px] md:w-[180px] h-[90px] md:h-[180px] opacity-100">
+      <div className="floating-sphere absolute bottom-[30%] left-[10%] md:bottom-[34%] md:left-[42%] z-20 w-[90px] md:w-[110px] h-[90px] md:h-[110px] opacity-100">
         <Image
           src="/bloque3/ESFERA-14.webp"
           alt="Esfera 14"
