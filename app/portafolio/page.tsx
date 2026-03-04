@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useDeferredValue } from "react";
+import { useState, useMemo } from "react";
 import { DomeGallery } from "@/components/DomeGallery";
 import { Navbar } from "@/components/Navbar";
 import { projects } from "@/lib/data";
@@ -8,17 +8,16 @@ import { Search } from "lucide-react";
 
 export default function PortafolioPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const deferredSearchQuery = useDeferredValue(searchQuery);
 
   const filteredProjects = useMemo(() => {
-    if (!deferredSearchQuery) return projects;
+    if (!searchQuery) return projects;
     
-    const query = deferredSearchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase();
     return projects.filter((project) =>
       project.title.toLowerCase().includes(query) ||
       project.description.toLowerCase().includes(query)
     );
-  }, [deferredSearchQuery]);
+  }, [searchQuery]);
 
   return (
     <main className="bg-[#060010] min-h-screen text-white overflow-hidden relative font-sans selection:bg-white/30">
