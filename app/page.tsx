@@ -11,7 +11,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#060010] min-h-screen text-white font-sans selection:bg-white/30">
+    <main className="bg-[#060010] min-h-screen text-white font-sans selection:bg-white/30 overflow-x-hidden">
       <Navbar />
 
       {/* 1. Hero Section */}

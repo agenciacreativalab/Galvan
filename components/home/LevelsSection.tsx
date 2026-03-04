@@ -116,7 +116,7 @@ export function LevelsSection() {
         />
       </div>
 
-      <div className="floating-ball-3 absolute top-[30%] left-[350%] md:top-[42%] md:left-[68%] w-[150px] h-[150px] md:w-[100px] md:h-[100px] z-[5] pointer-events-auto cursor-pointer">
+      <div className="floating-ball-3 absolute top-[30%] left-[75%] md:top-[42%] md:left-[68%] w-[150px] h-[150px] md:w-[100px] md:h-[100px] z-[5] pointer-events-auto cursor-pointer">
         <Image
           src="/hero/RECURSO_2.webp"
           alt="Floating ball 3"
