@@ -11,13 +11,24 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        const rect = aboutSection.getBoundingClientRect();
-        // Si el navbar (que está a top-12 ~ 48px) está dentro del área de la sección light
-        const isOverLight = rect.top <= 60 && rect.bottom >= 60;
-        setIsLightSection(isOverLight);
-      }
+      const workSection = document.getElementById("work");
+      const aboutSection = document.getElementById("about"); // keep in case it exists elsewhere
+      
+      let isOverLight = false;
+      
+      const checkSection = (el: HTMLElement | null) => {
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 60 && rect.bottom >= 60) {
+            isOverLight = true;
+          }
+        }
+      };
+
+      checkSection(workSection);
+      checkSection(aboutSection);
+
+      setIsLightSection(isOverLight);
     };
 
     window.addEventListener("scroll", handleScroll);

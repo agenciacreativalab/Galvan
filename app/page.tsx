@@ -7,6 +7,7 @@ import { UniversePhases } from "@/components/home/UniversePhases";
 import { PortfolioSection } from "@/components/home/PortfolioSection";
 import { LevelsSection } from "@/components/home/LevelsSection";
 import { LevelsGraphSection } from "@/components/home/LevelsGraphSection";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -45,19 +46,7 @@ export default function Home() {
         <LevelsGraphSection />
       </section>
 
-      {/* 9. Contact / CTA Section */}
-      <section id="contact" className="relative w-full py-40 flex flex-col items-center justify-center bg-[#060010] border-t border-white/5">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,0,255,0.1),transparent_70%)] pointer-events-none" />
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter text-center max-w-2xl px-6 relative z-10">
-          Ready to see my work in action?
-        </h2>
-        <a
-          href="/portafolio"
-          className="relative z-10 px-10 py-5 bg-white text-black font-bold rounded-full text-lg hover:scale-105 active:scale-95 transition-transform"
-        >
-          Ir al Portafolio 3D
-        </a>
-      </section>
+      <Footer />
     </main>
   );
 }
