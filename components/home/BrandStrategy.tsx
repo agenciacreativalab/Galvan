@@ -219,28 +219,32 @@ export function BrandStrategy() {
           </div>
 
           {/* Bloque de Imágenes Derecho (Elemento 4 y 5) */}
-          <div ref={cardsRef} className="relative flex flex-col space-y-[-30px] items-center flex-1 py-12 lg:py-20 w-full">
+          <div ref={cardsRef} className="relative flex flex-col space-y-[-30px] items-center flex-1 py-12 lg:py-20 w-full pointer-events-auto">
 
             {/* ELEMENTO 4 (Negro) - Recto y más a la DERECHA */}
-            <div className="animate-card-main self-center lg:self-end lg:mr-[-80px] w-full max-w-sm md:max-w-md transform transition-transform duration-500 ease-out hover:scale-125 rotate-0 origin-center z-20 cursor-pointer">
-              <Image
-                src="/bloque2/ELEMENTO 4.webp"
-                alt="No encaja"
-                width={500}
-                height={250}
-                className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.25)]"
-              />
+            <div className="animate-card-main self-center lg:self-end lg:mr-[-80px] w-full max-w-sm md:max-w-md z-20 group">
+              <div className="w-full cursor-pointer relative">
+                <Image
+                  src="/bloque2/ELEMENTO 4.webp"
+                  alt="No encaja"
+                  width={500}
+                  height={250}
+                  className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.25)] relative z-20 transform transition-transform duration-500 ease-out group-hover:scale-125 origin-center"
+                />
+              </div>
             </div>
 
             {/* ELEMENTO 5 (Rojo) - Recto y más a la IZQUIERDA */}
-            <div className="animate-card-main self-center lg:self-start lg:ml-[-100px] w-full max-w-sm md:max-w-md transform transition-transform duration-500 ease-out hover:scale-125 rotate-0 origin-center z-30 cursor-pointer hover:z-40">
-              <Image
-                src="/bloque2/ELEMENTO 5.webp"
-                alt="Sí encaja"
-                width={500}
-                height={250}
-                className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(128,0,32,0.25)]"
-              />
+            <div className="animate-card-main self-center lg:self-start lg:ml-[-100px] w-full max-w-sm md:max-w-md z-30 group hover:z-40">
+              <div className="w-full cursor-pointer relative">
+                <Image
+                  src="/bloque2/ELEMENTO 5.webp"
+                  alt="Sí encaja"
+                  width={500}
+                  height={250}
+                  className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(128,0,32,0.25)] relative z-30 transform transition-transform duration-500 ease-out group-hover:scale-125 origin-center"
+                />
+              </div>
             </div>
           </div>
         </div>
