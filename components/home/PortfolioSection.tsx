@@ -58,31 +58,31 @@ export function PortfolioSection() {
         <div ref={marqueeRef} className="flex flex-nowrap w-max">
                     {/* Bloque original */}
                     <div className="flex shrink-0">
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 1.webp" alt="Work 1" fill className="object-contain" />
                       </div>
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 2.webp" alt="Work 2" fill className="object-contain" />
                       </div>
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 3.webp" alt="Work 3" fill className="object-contain" />
                       </div>
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 4.webp" alt="Work 4" fill className="object-contain" />
                       </div>
                     </div>
                     {/* Bloque duplicado para hacer el loop infinito sin saltos */}
                     <div className="flex shrink-0">
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 1.webp" alt="Work 1" fill className="object-contain" />
                       </div>
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 2.webp" alt="Work 2" fill className="object-contain" />
                       </div>
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 3.webp" alt="Work 3" fill className="object-contain" />
                       </div>
-                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0 mx-4">
+                      <div className="relative h-[200px] md:h-[450px] w-[800px] md:w-[1200px] shrink-0">
                         <Image src="/bloque6/carrusel 4.webp" alt="Work 4" fill className="object-contain" />
                       </div>
                     </div>

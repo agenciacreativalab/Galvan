@@ -41,6 +41,17 @@ export function SinMarca() {
       ease: "power3.out",
     }, "-=1");
 
+    // Animación continua para las esferas flotantes
+    gsap.to(".floating-sphere", {
+      y: "random(-20, 20)",
+      x: "random(-10, 10)",
+      duration: "random(4, 6)",
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: 0.5
+    });
+
   }, { scope: container });
 
   const points = [
@@ -67,10 +78,29 @@ export function SinMarca() {
       </div>
 
       {/* Decorative Star/Sparkle */}
-      <div className="absolute top-8 right-8 md:top-12 md:right-12 z-20 w-[50px] md:w-[80px] h-[50px] md:h-[80px]">
+      <div className="absolute top-8 right-8 md:top-0 md:right-12 z-20 w-[300px] md:w-[300px] h-[300px] md:h-[300px]">
         <Image
           src="/bloque3/ELEMENTO 1.webp"
           alt="Sparkle Decoration"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      {/* Decorative Spheres (17 y 20) */}
+      <div className="floating-sphere absolute top-[15%] left-[5%] md:top-[25%] md:left-[10%] z-20 w-[80px] md:w-[150px] h-[80px] md:h-[150px] opacity-80">
+        <Image
+          src="/bloque3/ESFERA-17.webp"
+          alt="Esfera 17"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      <div className="floating-sphere absolute bottom-[10%] right-[10%] md:bottom-[15%] md:right-[20%] z-20 w-[100px] md:w-[200px] h-[100px] md:h-[200px] opacity-80">
+        <Image
+          src="/bloque3/ESFERA-20.webp"
+          alt="Esfera 20"
           fill
           className="object-contain"
         />
