@@ -14,17 +14,6 @@ export function SinMarca() {
   const container = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const [sphereStyles, setSphereStyles] = useState<{ top: string, left: string, width: string, height: string }[]>([]);
-
-  useEffect(() => {
-    const styles = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22].map(() => ({
-      top: `${Math.random() * 80 + 10}%`,
-      left: `${Math.random() * 80 + 10}%`,
-      width: `${Math.random() * 40 + 20}px`,
-      height: `${Math.random() * 40 + 20}px`,
-    }));
-    setSphereStyles(styles);
-  }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -52,20 +41,6 @@ export function SinMarca() {
       ease: "power3.out",
     }, "-=1");
 
-    // Animación de las esferas flotantes
-    gsap.to(".floating-sphere", {
-      y: "random(-20, 20)",
-      x: "random(-10, 10)",
-      duration: "random(3, 5)",
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      stagger: {
-        amount: 2,
-        from: "random",
-      }
-    });
-
   }, { scope: container });
 
   const points = [
@@ -88,6 +63,16 @@ export function SinMarca() {
           alt="Dark Universe Background"
           fill
           className="object-cover"
+        />
+      </div>
+
+      {/* Decorative Star/Sparkle */}
+      <div className="absolute top-8 right-8 md:top-12 md:right-12 z-20 w-[50px] md:w-[80px] h-[50px] md:h-[80px]">
+        <Image
+          src="/bloque3/ELEMENTO 1.webp"
+          alt="Sparkle Decoration"
+          fill
+          className="object-contain"
         />
       </div>
 
