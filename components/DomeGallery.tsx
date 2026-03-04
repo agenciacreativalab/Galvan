@@ -31,11 +31,38 @@ export function DomeGallery({ items }: DomeGalleryProps) {
 
   // Distribuir las imágenes en un cilindro 3D gigante sin límites
   const gridItems = useMemo(() => {
+    // Si hay muy pocos elementos (ej. búsqueda o filtrado), organizarlos en una matriz plana centrada
+    if (items.length <= 6) {
+      return items.map((project, index) => {
+        // Centramos los primeros elementos directamente.
+        // Si hay solo 1, index 0, col = 0, row = 0 -> xOffset = 0, yOffset = 0.
+        // Si hay más, los organizamos en 1 fila (máx 3).
+        const maxCols = Math.min(items.length, 3);
+        const row = Math.floor(index / maxCols);
+        const col = index % maxCols;
+
+        // Centrado horizontal
+        const xOffset = (col - (maxCols - 1) / 2) * 400; 
+        
+        // Centrado vertical
+        const totalRows = Math.ceil(items.length / maxCols);
+        const yOffset = (row - (totalRows - 1) / 2) * 500;
+
+        return {
+          project,
+          rotateY: 0,
+          yOffset,
+          xOffset,
+          isFlat: true
+        };
+      });
+    }
+
     const rows = 3; // 3 filas para darle amplitud vertical
     const cols = Math.max(1, Math.ceil(items.length / rows));
     
     // Si hay muy pocos elementos, no cubrimos los 360 grados enteros para que no queden muy separados
-    const anglePerCol = items.length <= rows ? 0 : (items.length <= rows * 2 ? 60 : 360 / cols);
+    const anglePerCol = items.length <= rows * 2 ? 60 : 360 / cols;
     
     return items.map((project, index) => {
       const col = Math.floor(index / rows);
@@ -51,6 +78,8 @@ export function DomeGallery({ items }: DomeGalleryProps) {
         project,
         rotateY,
         yOffset,
+        xOffset: 0,
+        isFlat: false
       };
     });
   }, [items]);
@@ -61,9 +90,12 @@ export function DomeGallery({ items }: DomeGalleryProps) {
     config: { mass: 1.5, tension: 200, friction: 50 } // Movimiento fluido
   }));
 
-  // Resetear la cámara si cambian los elementos (ej. cuando se busca)
+  // Resetear la cámara suavemente si cambian los elementos (ej. cuando se busca)
   useEffect(() => {
-    api.start({ rotateX: 0, rotateY: 0 });
+    // Si quedan pocos elementos, ponemos la cámara de frente sí o sí.
+    if (items.length <= 6) {
+      api.start({ rotateX: 0, rotateY: 0, immediate: false });
+    }
   }, [items, api]);
 
   const bind = useDrag(({ offset: [ox, oy], movement: [mx, my], first }) => {
@@ -123,7 +155,9 @@ export function DomeGallery({ items }: DomeGalleryProps) {
                 height: "480px",
                 marginLeft: "-180px",
                 marginTop: "-240px",
-                transform: `rotateY(${it.rotateY}deg) translateY(${it.yOffset}px) translateZ(${radius}px)`,
+                transform: it.isFlat 
+                  ? `translateY(${it.yOffset}px) translateX(${it.xOffset}px) translateZ(${radius * 0.8}px)`
+                  : `rotateY(${it.rotateY}deg) translateY(${it.yOffset}px) translateZ(${radius}px)`,
                 transformStyle: "preserve-3d",
                 backfaceVisibility: "hidden",
               }}
