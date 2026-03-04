@@ -41,6 +41,13 @@ export function SinMarca() {
       ease: "power3.out",
     }, "-=1");
 
+    // Animación de las esferas (fade in/scale in al scrollear)
+    tl.fromTo(".floating-sphere", 
+      { opacity: 0, scale: 0 },
+      { opacity: 1, scale: 1, duration: 1.5, stagger: 0.2, ease: "back.out(1.7)" },
+      "-=1.5"
+    );
+
     // Animación continua para las esferas flotantes
     gsap.to(".floating-sphere", {
       y: "random(-20, 20)",
