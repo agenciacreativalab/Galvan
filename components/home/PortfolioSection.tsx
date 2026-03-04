@@ -4,9 +4,16 @@ import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export function PortfolioSection() {
+  const containerRef = useRef<HTMLElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const textBlockRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!marqueeRef.current) return;
@@ -24,10 +31,27 @@ export function PortfolioSection() {
       ease: "none",
       repeat: -1,
     });
-  }, { scope: marqueeRef });
+
+    if (textBlockRef.current) {
+      gsap.fromTo(textBlockRef.current,
+        { x: 200, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: textBlockRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          }
+        }
+      );
+    }
+  }, { scope: containerRef });
 
   return (
-    <section className="relative w-full bg-[#f8f9fa] overflow-hidden pt-10">
+    <section ref={containerRef} className="relative w-full bg-[#f8f9fa] overflow-hidden pt-10">
       {/* 1. Parte Superior (Pasarela de Imágenes / Marquee) */}
       <div className="w-full overflow-hidden flex whitespace-nowrap bg-[#f8f9fa]">
         <div ref={marqueeRef} className="flex flex-nowrap w-max">
@@ -98,7 +122,7 @@ export function PortfolioSection() {
                       {/* Caja Oscura (Contrapeso Visual) - Rompe MUCHO hacia la derecha */}
                       {/* Envolvemos en un div normal y usamos un seudoelemento absoluto para el fondo, 
                           así el texto no se deforma ni se sale de pantalla, pero el fondo sí rompe. */}
-                      <div className="relative p-10 md:p-16 lg:py-24 lg:px-16 w-full max-w-2xl">
+                      <div ref={textBlockRef} className="relative p-10 md:p-16 lg:py-24 lg:px-16 w-full max-w-2xl">
                         <div className="absolute inset-0 bg-[#1A1D20] w-[100vw] right-[-50vw] rounded-l-sm shadow-2xl"></div>
           
                         <div className="relative z-10 border-l-4 border-white pl-6 md:pl-10">

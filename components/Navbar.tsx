@@ -35,12 +35,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isPortafolio = pathname === "/portafolio";
+
   const navLinks = [
-    { name: "Servicio", href: "#services" },
+    ...(isPortafolio ? [{ name: "Inicio", href: "/" }] : []),
+    { name: "Servicio", href: "/#services" },
     { name: "Portafolio", href: "/portafolio" },
-    { name: "Noticias", href: "#news" },
-    { name: "Equipo", href: "#team" },
-    { name: "Contacto", href: "#contact" },
+    { name: "Noticias", href: "/#news" },
+    { name: "Equipo", href: "/#team" },
+    { name: "Contacto", href: "/#contact" },
   ];
 
   return (
