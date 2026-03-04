@@ -167,7 +167,7 @@ export function LevelsGraphSection() {
         {/* Gráfica Central */}
         <div ref={graphRef} className="relative w-full max-w-4xl lg:max-w-5xl aspect-[16/9] sm:aspect-auto sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
           <Image
-            src="/bloque8/ELEMENTO 2.webp"
+            src="/bloque8/Nivelesw.webp"
             alt="Gráfica 3 Niveles de Marca"
             fill
             className="object-contain drop-shadow-2xl"

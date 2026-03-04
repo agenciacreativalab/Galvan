@@ -189,27 +189,27 @@ export function SinMarca() {
               {/* Sistema Solar - Planetas Orbitando (15, 16, 19, 21, 22) */}
               <div className="absolute inset-0 z-30 pointer-events-none">
                 <div className="absolute inset-0 animate-orbit-1">
-                  <div className="absolute top-[0%] left-[45%] w-[50px] h-[50px] md:w-[70px] md:h-[70px] animate-counter-orbit-1 orbiting-planet">
+                  <div className="absolute top-[0%] left-[45%] w-[80px] h-[80px] md:w-[120px] md:h-[120px] animate-counter-orbit-1 orbiting-planet">
                     <Image src="/bloque3/ESFERA-15.webp" alt="Esfera 15" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-2">
-                  <div className="absolute top-[40%] right-[-10%] w-[60px] h-[60px] md:w-[90px] md:h-[90px] animate-counter-orbit-2 orbiting-planet">
+                  <div className="absolute top-[40%] right-[-10%] w-[90px] h-[90px] md:w-[140px] md:h-[140px] animate-counter-orbit-2 orbiting-planet">
                     <Image src="/bloque3/ESFERA-16.webp" alt="Esfera 16" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-3">
-                  <div className="absolute bottom-[-5%] left-[30%] w-[40px] h-[40px] md:w-[50px] md:h-[50px] animate-counter-orbit-3 orbiting-planet">
+                  <div className="absolute bottom-[-5%] left-[30%] w-[70px] h-[70px] md:w-[100px] md:h-[100px] animate-counter-orbit-3 orbiting-planet">
                     <Image src="/bloque3/ESFERA-19.webp" alt="Esfera 19" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-4">
-                  <div className="absolute top-[20%] left-[-5%] w-[45px] h-[45px] md:w-[60px] md:h-[60px] animate-counter-orbit-4 orbiting-planet">
+                  <div className="absolute top-[20%] left-[-5%] w-[75px] h-[75px] md:w-[110px] md:h-[110px] animate-counter-orbit-4 orbiting-planet">
                     <Image src="/bloque3/ESFERA-21.webp" alt="Esfera 21" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-5">
-                  <div className="absolute bottom-[10%] right-[5%] w-[55px] h-[55px] md:w-[80px] md:h-[80px] animate-counter-orbit-5 orbiting-planet">
+                  <div className="absolute bottom-[10%] right-[5%] w-[85px] h-[85px] md:w-[130px] md:h-[130px] animate-counter-orbit-5 orbiting-planet">
                     <Image src="/bloque3/ESFERA-22.webp" alt="Esfera 22" fill className="object-contain" />
                   </div>
                 </div>
