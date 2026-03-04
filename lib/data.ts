@@ -65,9 +65,19 @@ export const projects: Project[] = [
     gallery: [images[4], images[5], images[6]],
     content: pgcContent,
   },
-  ...Array.from({ length: 13 }).map((_, i) => {
+  ...Array.from({ length: 49 }).map((_, i) => {
     const idNum = i + 3;
     const imgIndex = i % 7;
+    
+    // Generar una galería más rica mezclando imágenes aleatoriamente
+    const randomGallery = [
+      images[(imgIndex + 1) % 7],
+      images[(imgIndex + 2) % 7],
+      images[(imgIndex + 3) % 7],
+      images[(imgIndex + 4) % 7],
+      images[(imgIndex + 5) % 7],
+    ];
+
     return {
       id: `proyecto-${idNum}`,
       title: `Proyecto Estratégico ${idNum}`,
@@ -75,11 +85,7 @@ export const projects: Project[] = [
       category: i % 2 === 0 ? "Identidad de Marca" : "Estrategia Digital",
       image: images[imgIndex],
       description: `Un trabajo extenso de branding y experiencia de usuario diseñado para generar impacto y conversión en el mercado actual.`,
-      gallery: [
-        images[(imgIndex + 1) % 7],
-        images[(imgIndex + 2) % 7],
-        images[(imgIndex + 3) % 7]
-      ],
+      gallery: randomGallery,
       content: genericContent,
     };
   })

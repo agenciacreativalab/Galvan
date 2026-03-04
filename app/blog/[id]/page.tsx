@@ -53,8 +53,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
       </div>
 
       {/* MAIN IMAGE */}
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 mb-24">
-        <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-white/10">
+      <div className="w-full max-w-[90vw] mx-auto mb-20">
+        <div className="relative w-full h-[60vh] md:h-[80vh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-white/10">
           <Image
             src={project.image}
             alt={project.title}
@@ -65,54 +65,74 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </div>
       </div>
 
-      {/* EXTENDED CONTENT SECTION */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 mb-32 flex flex-col gap-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 border-t border-white/10 pt-10">
+      {/* TEXT SUMMARY SECTION (Minimal) */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-white/10 pt-10">
           <div className="col-span-1">
-            <h3 className="text-white/50 uppercase tracking-widest text-xs font-bold mb-2">Proyecto</h3>
+            <h3 className="text-white/50 uppercase tracking-widest text-xs font-bold mb-2">Cliente</h3>
             <p className="font-medium text-lg">{project.title}</p>
           </div>
           <div className="col-span-1">
-            <h3 className="text-white/50 uppercase tracking-widest text-xs font-bold mb-2">Categoría</h3>
+            <h3 className="text-white/50 uppercase tracking-widest text-xs font-bold mb-2">Industria</h3>
             <p className="font-medium text-lg">{project.category}</p>
           </div>
           <div className="col-span-2">
-            <h3 className="text-white/50 uppercase tracking-widest text-xs font-bold mb-2">Visión</h3>
-            <p className="font-medium text-lg text-white/90">{project.description}</p>
-          </div>
-        </div>
-
-        <div className="prose prose-invert prose-xl max-w-none text-white/80 font-light leading-relaxed space-y-8 font-['Poppins']">
-          {project.content.map((paragraph, idx) => (
-            <p key={idx} className={`${idx === 0 ? "text-2xl md:text-3xl font-normal text-white leading-snug" : ""}`}>
-              {paragraph}
+            <h3 className="text-white/50 uppercase tracking-widest text-xs font-bold mb-2">El Reto</h3>
+            <p className="font-light text-xl text-white/90 leading-relaxed font-['Poppins']">
+              {project.content[0]} {project.content[1]}
             </p>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* GALLERY SECTION */}
-      <div className="w-full bg-[#0F172A] py-32 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(113,201,206,0.05),transparent_70%)] pointer-events-none" />
+      {/* EXTENSIVE GALLERY SECTION (Massive Grids) */}
+      <div className="w-full bg-[#0F172A] py-20 border-t border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(113,201,206,0.05),transparent_70%)] pointer-events-none" />
         
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl md:text-5xl font-lemon-milk font-bold uppercase tracking-tighter mb-16 text-center">
-            Exploración Visual
-          </h2>
+        <div className="max-w-[95vw] mx-auto px-4 lg:px-8 flex flex-col gap-6">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {project.gallery.map((img, idx) => (
-              <div key={idx} className={`relative rounded-2xl overflow-hidden border border-white/10 group ${idx === 2 ? "md:col-span-2 lg:col-span-1 aspect-[4/3] lg:aspect-square" : "aspect-square"}`}>
+          {/* Fila 1: Dos imágenes grandes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {project.gallery.slice(0, 2).map((img, idx) => (
+              <div key={idx} className="relative w-full h-[50vh] md:h-[70vh] rounded-xl overflow-hidden group">
                 <Image
                   src={img}
-                  alt={`Gallery image ${idx + 1}`}
+                  alt={`Project detail ${idx + 1}`}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
             ))}
           </div>
+
+          {/* Fila 2: Una imagen panorámica gigante */}
+          {project.gallery[2] && (
+            <div className="relative w-full h-[60vh] md:h-[90vh] rounded-xl overflow-hidden group">
+              <Image
+                src={project.gallery[2]}
+                alt="Project massive detail"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
+              />
+            </div>
+          )}
+
+          {/* Fila 3: Grilla asimétrica (si hay más imágenes) */}
+          {project.gallery.length > 3 && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {project.gallery.slice(3, 6).map((img, idx) => (
+                <div key={idx} className={`relative w-full rounded-xl overflow-hidden group ${idx === 0 ? "md:col-span-2 h-[50vh] md:h-[60vh]" : "h-[50vh] md:h-[60vh]"}`}>
+                  <Image
+                    src={img}
+                    alt={`Project grid detail ${idx + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-[1.05]"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+
         </div>
       </div>
 
