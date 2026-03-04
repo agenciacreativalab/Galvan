@@ -14,6 +14,7 @@ export function SinMarca() {
   const container = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const orbitsRef = useRef<gsap.core.Tween[]>([]);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -60,29 +61,32 @@ export function SinMarca() {
     });
 
     // Animaciones para las esferas orbitando (15, 16, 19, 21, 22)
+    orbitsRef.current = [];
     [1, 2, 3, 4, 5].forEach((i) => {
       const duration = 25 + i * 5; // Tiempos diferentes para cada planeta
       const direction = i % 2 === 0 ? -1 : 1; // Unos giran izq, otros der
       
       // Contenedor gira
-      gsap.to(`.animate-orbit-${i}`, {
+      const orbit = gsap.to(`.animate-orbit-${i}`, {
         rotation: 360 * direction,
         duration: duration,
         repeat: -1,
         ease: "linear",
       });
       // Imagen contrarrota para mantenerse derecha
-      gsap.to(`.animate-counter-orbit-${i}`, {
+      const counterOrbit = gsap.to(`.animate-counter-orbit-${i}`, {
         rotation: -360 * direction,
         duration: duration,
         repeat: -1,
         ease: "linear",
       });
+
+      orbitsRef.current.push(orbit, counterOrbit);
     });
 
     // Efecto 3D de profundidad para los planetas (se acercan y alejan)
     gsap.to(".orbiting-planet", {
-      scale: 1.4,
+      scale: 1.6,
       opacity: 1, // Se ilumina un poco más al "acercarse"
       duration: "random(3, 6)",
       repeat: -1,
@@ -177,39 +181,47 @@ export function SinMarca() {
 
           {/* Bloque Visual Izquierdo (Desktop) */}
           <div ref={visualRef} className="order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[550px] aspect-square">
+            <div 
+              className="relative w-full max-w-[550px] aspect-square group cursor-pointer"
+              onMouseEnter={() => {
+                orbitsRef.current.forEach(t => gsap.to(t, { timeScale: 4, duration: 0.5 }));
+              }}
+              onMouseLeave={() => {
+                orbitsRef.current.forEach(t => gsap.to(t, { timeScale: 1, duration: 0.5 }));
+              }}
+            >
               <Image
                 src="/bloque3/ESFERA-18.webp"
                 alt="One-line art face illustration"
                 fill
-                className="object-contain drop-shadow-[0_0_30px_rgba(230,168,0,0.2)] relative z-20"
+                className="object-contain drop-shadow-[0_0_30px_rgba(230,168,0,0.4)] relative z-20 transition-transform duration-700 ease-out group-hover:scale-110"
                 priority
               />
 
               {/* Sistema Solar - Planetas Orbitando (15, 16, 19, 21, 22) */}
-              <div className="absolute inset-0 z-30 pointer-events-none">
+              <div className="absolute inset-0 z-30 pointer-events-none transition-transform duration-700 ease-out group-hover:scale-110">
                 <div className="absolute inset-0 animate-orbit-1">
-                  <div className="absolute top-[0%] left-[45%] w-[80px] h-[80px] md:w-[120px] md:h-[120px] animate-counter-orbit-1 orbiting-planet">
+                  <div className="absolute top-[0%] left-[45%] w-[100px] h-[100px] md:w-[150px] md:h-[150px] animate-counter-orbit-1 orbiting-planet drop-shadow-2xl">
                     <Image src="/bloque3/ESFERA-15.webp" alt="Esfera 15" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-2">
-                  <div className="absolute top-[40%] right-[-10%] w-[90px] h-[90px] md:w-[140px] md:h-[140px] animate-counter-orbit-2 orbiting-planet">
+                  <div className="absolute top-[40%] right-[-15%] w-[120px] h-[120px] md:w-[180px] md:h-[180px] animate-counter-orbit-2 orbiting-planet drop-shadow-2xl">
                     <Image src="/bloque3/ESFERA-16.webp" alt="Esfera 16" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-3">
-                  <div className="absolute bottom-[-5%] left-[30%] w-[70px] h-[70px] md:w-[100px] md:h-[100px] animate-counter-orbit-3 orbiting-planet">
+                  <div className="absolute bottom-[-5%] left-[30%] w-[90px] h-[90px] md:w-[130px] md:h-[130px] animate-counter-orbit-3 orbiting-planet drop-shadow-2xl">
                     <Image src="/bloque3/ESFERA-19.webp" alt="Esfera 19" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-4">
-                  <div className="absolute top-[20%] left-[-5%] w-[75px] h-[75px] md:w-[110px] md:h-[110px] animate-counter-orbit-4 orbiting-planet">
+                  <div className="absolute top-[20%] left-[-15%] w-[100px] h-[100px] md:w-[140px] md:h-[140px] animate-counter-orbit-4 orbiting-planet drop-shadow-2xl">
                     <Image src="/bloque3/ESFERA-21.webp" alt="Esfera 21" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="absolute inset-0 animate-orbit-5">
-                  <div className="absolute bottom-[10%] right-[5%] w-[85px] h-[85px] md:w-[130px] md:h-[130px] animate-counter-orbit-5 orbiting-planet">
+                  <div className="absolute bottom-[5%] right-[-5%] w-[110px] h-[110px] md:w-[160px] md:h-[160px] animate-counter-orbit-5 orbiting-planet drop-shadow-2xl">
                     <Image src="/bloque3/ESFERA-22.webp" alt="Esfera 22" fill className="object-contain" />
                   </div>
                 </div>
