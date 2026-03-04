@@ -50,22 +50,22 @@ export function LevelsGraphSection() {
     });
 
     // 1. Icono superior derecho fade in
-    tl.fromTo(iconRef.current, 
+    tl.fromTo(iconRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power2.out" }
     );
 
     // 2. Gráfica central zoom in y fade in
-    tl.fromTo(graphRef.current, 
+    tl.fromTo(graphRef.current,
       { scale: 0.9, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.5, ease: "power4.out" }, 
+      { scale: 1, opacity: 1, duration: 1.5, ease: "power4.out" },
       "-=0.5"
     );
 
     // 3. Botón sube y hace fade in
-    tl.fromTo(buttonRef.current, 
+    tl.fromTo(buttonRef.current,
       { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
       "-=1"
     );
 
@@ -120,11 +120,11 @@ export function LevelsGraphSection() {
       </div>
 
       {/* ======== BOLITAS FLOTANTES GRANDES ======== */}
-      <div className="floating-ball-1 absolute top-[15%] left-[5%] md:top-[20%] md:left-[10%] w-[150px] h-[150px] md:w-[250px] md:h-[250px] z-[5] pointer-events-auto cursor-pointer">
+      <div className="floating-ball-1 absolute top-[60%] left-[5%] md:top-[70%] md:left-[4%] w-[150px] h-[150px] md:w-[300px] md:h-[300px] z-[5] pointer-events-auto cursor-pointer">
         <Image src="/hero/RECURSO_1.webp" alt="Floating ball 1" fill className="object-contain hover:scale-150 transition-transform duration-300" quality={100} />
       </div>
 
-      <div className="floating-ball-2 absolute bottom-[10%] right-[5%] md:bottom-[20%] md:right-[10%] w-[250px] h-[250px] md:w-[350px] md:h-[350px] z-[5] pointer-events-auto cursor-pointer">
+      <div className="floating-ball-2 absolute bottom-[40%] right-[10%] md:bottom-[5%] md:right-[10%] w-[100px] h-[100px] md:w-[200px] md:h-[200px] z-[5] pointer-events-auto cursor-pointer">
         <Image
           src="/hero/RECURSO_2.webp"
           alt="Floating ball 2"
@@ -148,17 +148,11 @@ export function LevelsGraphSection() {
             height: sphereStyles[i].height,
           } : {}}
         >
-          <Image
-            src={`/bloque3/ESFERA-${num}.webp`}
-            alt={`Floating Sphere ${num}`}
-            fill
-            className="object-contain"
-          />
         </div>
       ))}
 
       {/* Icono Superior Derecho */}
-      <div ref={iconRef} className="absolute top-8 right-8 md:top-12 md:right-12 z-20 w-[50px] md:w-[80px] h-[50px] md:h-[80px]">
+      <div ref={iconRef} className="absolute top-10 right-157 md:top-12 md:right-12 z-20 w-[50px] md:w-[80px] h-[50px] md:h-[80px]">
         <Image
           src="/bloque8/ELEMENTO 1.webp"
           alt="Icono Estrella/Sparkle"
