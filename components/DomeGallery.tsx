@@ -32,8 +32,10 @@ export function DomeGallery({ items }: DomeGalleryProps) {
   // Distribuir las imágenes en un cilindro 3D gigante sin límites
   const gridItems = useMemo(() => {
     const rows = 3; // 3 filas para darle amplitud vertical
-    const cols = Math.ceil(items.length / rows);
-    const anglePerCol = 360 / cols; // Cubre los 360 grados exactos para rotación infinita
+    const cols = Math.max(1, Math.ceil(items.length / rows));
+    
+    // Si hay muy pocos elementos, no cubrimos los 360 grados enteros para que no queden muy separados
+    const anglePerCol = items.length <= rows ? 0 : (items.length <= rows * 2 ? 60 : 360 / cols);
     
     return items.map((project, index) => {
       const col = Math.floor(index / rows);
@@ -58,6 +60,11 @@ export function DomeGallery({ items }: DomeGalleryProps) {
     rotateY: 0,
     config: { mass: 1.5, tension: 200, friction: 50 } // Movimiento fluido
   }));
+
+  // Resetear la cámara si cambian los elementos (ej. cuando se busca)
+  useEffect(() => {
+    api.start({ rotateX: 0, rotateY: 0 });
+  }, [items, api]);
 
   const bind = useDrag(({ offset: [ox, oy], movement: [mx, my], first }) => {
     if (first) dragState.current.moved = false;
