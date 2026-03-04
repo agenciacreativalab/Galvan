@@ -222,7 +222,7 @@ export function BrandStrategy() {
           <div ref={cardsRef} className="relative flex flex-col space-y-[-30px] items-center flex-1 py-12 lg:py-20 w-full">
 
             {/* ELEMENTO 4 (Negro) - Recto y más a la DERECHA */}
-            <div className="animate-card-main self-center lg:self-end lg:mr-[-80px] w-full max-w-sm md:max-w-md transform transition-all duration-700 ease-out hover:scale-105 rotate-0 origin-center z-20">
+            <div className="animate-card-main self-center lg:self-end lg:mr-[-80px] w-full max-w-sm md:max-w-md transform transition-transform duration-500 ease-out hover:scale-125 rotate-0 origin-center z-20 cursor-pointer">
               <Image
                 src="/bloque2/ELEMENTO 4.webp"
                 alt="No encaja"
@@ -233,7 +233,7 @@ export function BrandStrategy() {
             </div>
 
             {/* ELEMENTO 5 (Rojo) - Recto y más a la IZQUIERDA */}
-            <div className="animate-card-main self-center lg:self-start lg:ml-[-100px] w-full max-w-sm md:max-w-md transform transition-all duration-700 ease-out hover:scale-105 rotate-0 origin-center z-10">
+            <div className="animate-card-main self-center lg:self-start lg:ml-[-100px] w-full max-w-sm md:max-w-md transform transition-transform duration-500 ease-out hover:scale-125 rotate-0 origin-center z-30 cursor-pointer hover:z-40">
               <Image
                 src="/bloque2/ELEMENTO 5.webp"
                 alt="Sí encaja"
